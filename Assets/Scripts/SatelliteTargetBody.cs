@@ -50,6 +50,9 @@ namespace SpaceCon
                 s.body = this;
                 s.speed = gravityBody.OrbitalVelocityAtHeight((transform.position - s.transform.position).magnitude);
             });
+#if UNITY_2017
+            projectile.body.simulated = false;
+#endif
             projectile.body.isKinematic = true;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
             

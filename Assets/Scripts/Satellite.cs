@@ -13,6 +13,10 @@ namespace SpaceCon
         {
             transform.RotateAround(body.transform.position, Vector3.forward, speed * Time.deltaTime);
         }
+    }
+
+    public class SatNode : MonoBehaviour
+    {
         
     }
 
