@@ -7,10 +7,12 @@ namespace SpaceCon
     [RequireComponent(typeof(CircleCollider2D), typeof(GravityBody))]
     public class SatelliteTargetBody : MonoBehaviour
     {
-        float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter 
+        public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter 
         List<Satellite> satellites = new List<Satellite>();
-        
+
+
         //Components on self
+        SatNet network;
         GravityBody gravityBody;
         CircleCollider2D trigger;
 
@@ -21,8 +23,9 @@ namespace SpaceCon
             trigger = this.RequireComponent<CircleCollider2D>(c =>
             {
                 c.isTrigger = true;
-                c.radius = targetScale;
+                c.radius = targetScale * 0.5f;
             });
+            network = this.RequireComponent<SatNet>();
         }
 
         private void Start()
@@ -30,7 +33,7 @@ namespace SpaceCon
             trigger = this.RequireComponent<CircleCollider2D>(c =>
             {
                 c.isTrigger = true;
-                c.radius = targetScale;
+                c.radius = targetScale * 0.5f;
             });
 
             gravityBody = this.RequireComponent<GravityBody>(gb =>
@@ -44,11 +47,14 @@ namespace SpaceCon
         {
             Satellite satellite = projectile.RequireComponent<Satellite>(s =>
             {
+                s.body = this;
                 s.speed = gravityBody.OrbitalVelocityAtHeight((transform.position - s.transform.position).magnitude);
             });
+            projectile.body.isKinematic = true;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
-
+            
             satellites.Add(satellite);
+
         }
 
         private void Exit(Satellite satellite)
@@ -56,12 +62,11 @@ namespace SpaceCon
             satellites.Remove(satellite);
         }
 
-
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log(LayerMask.NameToLayer("Satellite"));
             //Collider object register as attracted...
-            if(collision.gameObject.layer == 1 << 8)
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Satellite"))
             {
                 Enter(collision.GetComponent<Projectile>());
             }

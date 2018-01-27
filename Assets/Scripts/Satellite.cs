@@ -7,7 +7,7 @@ namespace SpaceCon
     public class Satellite : MonoBehaviour
     {
 
-        GravityBody body;
+        public SatelliteTargetBody body;
         public float speed;
         private void Update()
         {

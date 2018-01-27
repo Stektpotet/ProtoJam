@@ -6,6 +6,9 @@ namespace SpaceCon
     [RequireComponent(typeof(ProjectileLauncher))]
     public class Player : MonoBehaviour
     {
+
+        public GameObject prefab; //multiple later on...
+
         //Components on self
         ProjectileLauncher launcher;
 
@@ -16,6 +19,7 @@ namespace SpaceCon
 
         private bool charging;
         private float charge;
+        public float maxCharge; //static?
         private void Start()
         {
             launcher = this.RequireComponent<ProjectileLauncher>();
@@ -23,15 +27,17 @@ namespace SpaceCon
 
         private void Update()
         {
-            if(Input.GetKey(launchKey)) //while player holds launchkey, charge the launch power.
+            if(Input.GetKeyDown(launchKey))
+            {
+                charge = 0.1f;
+            }
+            else if(Input.GetKey(launchKey)) //while player holds launchkey, charge the launch power.
             {
                 charge += chargeMultiplier * Time.deltaTime;
             }
             else if (Input.GetKeyUp(launchKey))
             {
-                GameObject go = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-                go.transform.localScale = new Vector3(0.1f, 0.1f);
-                launcher.LaunchProjectile(go, charge);
+                launcher.LaunchProjectile(prefab, charge);
                 charge = 0;
             }
         }

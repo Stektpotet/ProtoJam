@@ -11,7 +11,10 @@ namespace SpaceCon
             Vector2 totalGee = Vector2.zero;
             foreach (GravityBody gb in bodies)
             {
-                totalGee += gb.GeeForce(position);
+                if(((Vector2)gb.transform.position - position).magnitude < gb.sphereOfInfluenceRadius)
+                {
+                    totalGee += gb.GeeForce(position);
+                }
             }
             return totalGee;
         }

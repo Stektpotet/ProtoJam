@@ -12,9 +12,12 @@ namespace SpaceCon
             GameObject projectileObject = Instantiate(prefab);
             projectileObject.transform.position = transform.position + transform.up * launcherOffset;
             projectileObject.transform.rotation = transform.rotation;
-            Projectile p = projectileObject.AddComponent<Projectile>();
-            p.Velocity = transform.up * initialForce;
-            return p;
+            Projectile projectile = projectileObject.transform.RequireComponent<Projectile>( p =>
+            {
+                p.body = p.GetComponent<Rigidbody2D>();
+                p.body.AddForce(initialForce * transform.up);
+            });
+            return projectile;
         }
 
         private void OnDrawGizmosSelected()

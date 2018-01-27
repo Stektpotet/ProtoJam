@@ -12,7 +12,7 @@ public static partial class ExtensionMethods
     /// 
     /// Called in Awake()
     /// </summary>
-    public static T RequireComponent<T>(this MonoBehaviour behaviour) where T : Component
+    public static T RequireComponent<T>(this Component behaviour) where T : Component
     {
         T component = behaviour.GetComponent<T>();
         if (component == null) { component = behaviour.gameObject.AddComponent<T>(); }
@@ -22,7 +22,7 @@ public static partial class ExtensionMethods
     /// <summary>
     /// Require a component with a specific setup, e.g. change the component properties
     /// </summary>
-    public static T RequireComponent<T>(this MonoBehaviour behaviour, Action<T> setup) where T : Component
+    public static T RequireComponent<T>(this Component behaviour, Action<T> setup) where T : Component
     {
         T component = behaviour.GetComponent<T>();
         if (component == null) { component = behaviour.gameObject.AddComponent<T>(); }

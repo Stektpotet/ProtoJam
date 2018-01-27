@@ -4,11 +4,12 @@ namespace SpaceCon
 {
     public class GravityBody : MonoBehaviour
     {
-
-        public const float G = .1f;
+        public const float G = .25f;
 
         [SerializeField]
-        private float mass = 100;
+        private float mass = 10;
+
+        public float sphereOfInfluenceRadius = 1;
 
         private void Start()
         {
@@ -23,8 +24,12 @@ namespace SpaceCon
 
         public float OrbitalVelocityAtHeight(float height)
         {
-            return Mathf.Sqrt(G * mass / height);
+            return Mathf.Sqrt( 100f / height);
+        }
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, sphereOfInfluenceRadius);
         }
     }
-
 }

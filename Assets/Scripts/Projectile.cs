@@ -3,17 +3,28 @@ using System.Collections;
 
 namespace SpaceCon
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Projectile : MonoBehaviour
     {
-        public Vector2 Velocity { get; set; }
+
+        //Components on self
+        public Rigidbody2D body;
+        public Vector2 Velocity { get { return body.velocity; } set { body.velocity = value; } }
+
+        private void Start()
+        {
+            body = this.RequireComponent<Rigidbody2D>();
+        }
         public void FixedUpdate()
         {
-            transform.position += (Vector3)(Velocity);
-            transform.position += (Vector3)GravityMap.GetGravityAtPosition(transform.position);
+            body.AddForce(GravityMap.GetGravityAtPosition(transform.position));
         }
-
+        public void Update()
+        {
+            Debug.DrawLine(transform.position, transform.position + (Vector3)(Velocity + GravityMap.GetGravityAtPosition(transform.position)), Color.red);
+        }
         //"Collision" to register as within a gravitational body's gravity field.
-        
-        
+
+
     }
 }
