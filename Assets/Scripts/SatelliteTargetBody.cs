@@ -55,13 +55,13 @@ namespace SpaceCon
             projectile.body.isKinematic = true;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
             
-            network.nodes.Add(satellite);
+            network.Connect(satellite);
 
         }
 
         private void Exit(Satellite satellite)
         {
-            network.nodes.Remove(satellite);
+            network.Disconnect(satellite);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
