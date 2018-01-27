@@ -8,9 +8,7 @@ namespace SpaceCon
     public class SatelliteTargetBody : MonoBehaviour
     {
         public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter 
-        List<Satellite> satellites = new List<Satellite>();
-
-
+        
         //Components on self
         SatNet network;
         GravityBody gravityBody;
@@ -50,19 +48,20 @@ namespace SpaceCon
                 s.body = this;
                 s.speed = gravityBody.OrbitalVelocityAtHeight((transform.position - s.transform.position).magnitude);
             });
+
 #if UNITY_2017
             projectile.body.simulated = false;
 #endif
             projectile.body.isKinematic = true;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
             
-            satellites.Add(satellite);
+            network.nodes.Add(satellite);
 
         }
 
         private void Exit(Satellite satellite)
         {
-            satellites.Remove(satellite);
+            network.nodes.Remove(satellite);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
