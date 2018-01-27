@@ -5,7 +5,7 @@ namespace SpaceCon
 {
     public class BodyRotation : MonoBehaviour
     {
-        [Range(0.1f, 10f)]
+        [Range(0.1f, 20f)]
         public float spin;
         private void Update()
         {

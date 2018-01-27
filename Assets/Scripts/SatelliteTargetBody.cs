@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SpaceCon
 {
-
+    //The Handler of capturing satellites
     [RequireComponent(typeof(CircleCollider2D), typeof(GravityBody))]
     public class SatelliteTargetBody : MonoBehaviour
     {
