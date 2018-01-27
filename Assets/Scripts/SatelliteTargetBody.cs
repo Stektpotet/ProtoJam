@@ -38,6 +38,8 @@ namespace SpaceCon
             {
                 satelliteOrbitalVelocity = gb.OrbitalVelocityAtHeight(targetScale);
             });
+
+            network = this.RequireComponent<SatNet>();
         }
 
         //Take control of physics again!
