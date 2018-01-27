@@ -1,63 +1,44 @@
 fileFormatVersion: 2
-guid: 38eb77d27213f4e0589eb9724c52455f
-timeCreated: 1517069818
+guid: 1cfd1f43fd1b74c1fb4b4671f0d52683
+timeCreated: 1517090431
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Sphere
-    100004: Sphere_001
-    100006: Cylinder
-    100008: Cylinder_001
-    100010: Cylinder_002
-    100012: Plane
-    100014: Plane_001
-    400000: //RootNode
-    400002: Sphere
-    400004: Sphere_001
-    400006: Cylinder
-    400008: Cylinder_001
-    400010: Cylinder_002
-    400012: Plane
-    400014: Plane_001
-    2100000: Material_001__red_planet_png
-    2100002: Material_002
-    2100004: Material__jupitor_planet_png
-    2100006: Material_005__sand_planet_png
-    2100008: Material_010
-    2100010: Mat_color
-    2100012: Mat_satelite_steel
-    2100014: Mat_steel_cap
-    2100016: Mat_Univers__milky-way-2881461_1920_jpg
-    2300000: //RootNode
-    2300002: Sphere
-    2300004: Sphere_001
-    2300006: Cylinder
-    2300008: Cylinder_001
-    2300010: Cylinder_002
-    2300012: Plane
-    2300014: Plane_001
-    3300000: //RootNode
-    3300002: Sphere
-    3300004: Sphere_001
-    3300006: Cylinder
-    3300008: Cylinder_001
-    3300010: Cylinder_002
-    3300012: Plane
-    3300014: Plane_001
-    4300000: Icosphere
-    4300002: Sphere_001
-    4300004: Sphere
-    4300006: Sphere_002
-    4300008: Cylinder_002
-    4300010: Plane_001
-    4300012: Plane
-    4300014: Cylinder_001
-    4300016: Cylinder
-    4300018: Plane_002
-    7400000: Default Take
-    9500000: //RootNode
+    100000: Cube.001
+    100002: Cylinder.010
+    100004: Cylinder.012
+    100006: Cylinder.013
+    100008: Cylinder.014
+    100010: Cylinder.015
+    100012: //RootNode
+    400000: Cube.001
+    400002: Cylinder.010
+    400004: Cylinder.012
+    400006: Cylinder.013
+    400008: Cylinder.014
+    400010: Cylinder.015
+    400012: //RootNode
+    2100000: Mat platform steel.001
+    2100002: Mat steel cap.001
+    2300000: Cube.001
+    2300002: Cylinder.010
+    2300004: Cylinder.012
+    2300006: Cylinder.013
+    2300008: Cylinder.014
+    2300010: Cylinder.015
+    3300000: Cube.001
+    3300002: Cylinder.010
+    3300004: Cylinder.012
+    3300006: Cylinder.013
+    3300008: Cylinder.014
+    3300010: Cylinder.015
+    4300000: Cube.001
+    4300002: Cylinder.010
+    4300004: Cylinder.012
+    4300006: Cylinder.013
+    4300008: Cylinder.014
+    4300010: Cylinder.015
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -132,7 +113,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
