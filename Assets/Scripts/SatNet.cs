@@ -8,15 +8,14 @@ namespace SpaceCon
     {
 
         List<Satellite> nodes = new List<Satellite>();
-        private void Start()
-        {
-            
-        }
 
         public void Connect(Satellite node)
         {
+            foreach (var n in nodes)
+            {
+
+            }
             nodes.Add(node);
-            
         }
         public void Disconnect(Satellite node)
         {
