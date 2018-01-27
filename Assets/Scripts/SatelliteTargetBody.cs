@@ -8,13 +8,14 @@ namespace SpaceCon
     public class SatelliteTargetBody : MonoBehaviour
     {
         public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter 
-        
+
         //Components on self
         SatNet network;
         GravityBody gravityBody;
         CircleCollider2D trigger;
 
         float satelliteOrbitalVelocity;
+        
 
         private void Reset()
         {
@@ -56,7 +57,7 @@ namespace SpaceCon
 #endif
             projectile.body.isKinematic = true;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
-            
+
             network.Connect(satellite);
 
         }
@@ -70,13 +71,12 @@ namespace SpaceCon
         {
             Debug.Log(LayerMask.NameToLayer("Satellite"));
             //Collider object register as attracted...
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Satellite"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Satellite"))
             {
                 Enter(collision.GetComponent<Projectile>());
             }
-
         }
-        
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;

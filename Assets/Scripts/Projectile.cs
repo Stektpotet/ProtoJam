@@ -7,6 +7,9 @@ namespace SpaceCon
     public class Projectile : MonoBehaviour
     {
 
+        //Instantiate explosion with earth
+        public GameObject explosion;
+
         //Components on self
         public Rigidbody2D body;
         public Vector2 Velocity { get { return body.velocity; } set { body.velocity = value; } }
@@ -26,5 +29,14 @@ namespace SpaceCon
         //"Collision" to register as within a gravitational body's gravity field.
 
 
+        public void OnCollisionEnter2D(Collision2D col)    //Fuckings explode!!! 
+        {
+            if (col.gameObject.layer == LayerMask.NameToLayer("Earth"))
+            {
+                Debug.Log("Explosion"); 
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }
     }
 }
