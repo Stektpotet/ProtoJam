@@ -7,7 +7,7 @@ namespace SpaceCon
     {
         public float launcherOffset;
 
-        public Projectile LaunchProjectile(GameObject prefab, float initialForce)
+        public Projectile LaunchProjectile(GameObject prefab, float initialForce, Player p)
         {
             GameObject projectileObject = Instantiate(prefab);
             projectileObject.transform.position = transform.position + transform.up * launcherOffset;

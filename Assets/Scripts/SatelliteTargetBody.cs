@@ -46,6 +46,8 @@ namespace SpaceCon
 #endif
             projectile.body.isKinematic = true;
             projectile.body.velocity = Vector2.zero;
+            projectile.rocket.SetActive(false);
+            projectile.satellite.SetActive(true);
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
 
             network.EnterOrbit(satellite.Node);

@@ -6,7 +6,7 @@ namespace SpaceCon
     [RequireComponent(typeof(Rigidbody2D))]
     public class Projectile : MonoBehaviour
     {
-
+        public GameObject rocket, satellite;
         //Components on self
         public Rigidbody2D body;
         public Vector2 Velocity { get { return body.velocity; } set { body.velocity = value; } }

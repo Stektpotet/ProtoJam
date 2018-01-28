@@ -101,7 +101,6 @@ namespace SpaceCon
                         };
 
                     }
-                    if (++count > 4) break;
                 }
                 if (nearest_transform == null) return;
 
