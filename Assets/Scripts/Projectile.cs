@@ -34,7 +34,8 @@ namespace SpaceCon
             if (col.gameObject.layer == LayerMask.NameToLayer("Earth"))
             {
                 Debug.Log("Explosion"); 
-                Instantiate(explosion, transform.position, Quaternion.identity);
+                GameObject go = Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(go, 3);
                 Destroy(gameObject);
             }
         }

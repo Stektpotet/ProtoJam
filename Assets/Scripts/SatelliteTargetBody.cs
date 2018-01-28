@@ -7,37 +7,26 @@ namespace SpaceCon
     [RequireComponent(typeof(CircleCollider2D), typeof(GravityBody))]
     public class SatelliteTargetBody : MonoBehaviour
     {
-        public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter
+        public float TargetScale { get { return trigger.radius * 2; } } //How large is the acceptable target deviation for satellites to be able to enter
 
         //Components on self
         SatNet network;
         GravityBody gravityBody;
-        CircleCollider2D trigger;
+        public CircleCollider2D trigger;
 
         float satelliteOrbitalVelocity;
 
 
         private void Reset()
         {
-            trigger = this.RequireComponent<CircleCollider2D>(c =>
-            {
-                c.isTrigger = true;
-                c.radius = targetScale * 0.5f;
-            });
             network = this.RequireComponent<SatNet>();
         }
 
         private void Start()
         {
-            trigger = this.RequireComponent<CircleCollider2D>(c =>
-            {
-                c.isTrigger = true;
-                c.radius = targetScale * 0.5f;
-            });
-
             gravityBody = this.RequireComponent<GravityBody>(gb =>
             {
-                satelliteOrbitalVelocity = gb.OrbitalVelocityAtHeight(targetScale);
+                satelliteOrbitalVelocity = gb.OrbitalVelocityAtHeight(TargetScale);
             });
 
             network = this.RequireComponent<SatNet>();
@@ -79,8 +68,11 @@ namespace SpaceCon
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(transform.position, targetScale);
+            if (trigger != null)
+            {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(transform.position, TargetScale);
+            }
         }
     }
 }
