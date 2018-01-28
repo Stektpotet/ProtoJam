@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 854484414}
   - component: {fileID: 854484416}
   - component: {fileID: 854484415}
+  - component: {fileID: 854484417}
   m_Layer: 0
   m_Name: Planet0Ring
   m_TagString: Untagged
@@ -810,13 +811,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: f5e92df6a635e4663bbd947e5cdceef3, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 854484413}
-  m_LocalRotation: {x: 0.17262599, y: -0.4463, z: 0.026930666, w: 0.8776624}
+  m_LocalRotation: {x: -0.11461574, y: 0.9289124, z: 0.13186833, w: -0.32649007}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69, y: 1.33, z: -0.9}
+  m_LocalScale: {x: 0.9, y: 1.33, z: 1}
   m_Children: []
   m_Father: {fileID: 180718155}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 19.09, y: -55, z: -6.49}
+  m_LocalEulerAnglesHint: {x: 19.09, y: -40.81, z: -6.49}
 --- !u!23 &854484415
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -860,6 +861,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 854484413}
   m_Mesh: {fileID: 4300000, guid: f5e92df6a635e4663bbd947e5cdceef3, type: 3}
+--- !u!114 &854484417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 854484413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179aa5c86f0ceb44fb76b3fbd82e711b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 20
 --- !u!1 &882733099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1423,7 @@ GameObject:
   - component: {fileID: 1530573737}
   - component: {fileID: 1530573739}
   - component: {fileID: 1530573738}
+  - component: {fileID: 1530573740}
   m_Layer: 0
   m_Name: saturnRing
   m_TagString: Untagged
@@ -1423,13 +1437,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: f5e92df6a635e4663bbd947e5cdceef3, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1530573736}
-  m_LocalRotation: {x: -0, y: -0, z: -4.6566123e-10, w: 1}
+  m_LocalRotation: {x: -0.04701924, y: 0, z: 0, w: 0.99889404}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 1417590688}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.39, y: 0, z: 0}
 --- !u!23 &1530573738
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1473,6 +1487,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1530573736}
   m_Mesh: {fileID: 4300000, guid: f5e92df6a635e4663bbd947e5cdceef3, type: 3}
+--- !u!114 &1530573740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530573736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179aa5c86f0ceb44fb76b3fbd82e711b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 20
 --- !u!4 &1814150354 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4280216145872578, guid: 1885272d02befb3429e46bfb5a828167,
