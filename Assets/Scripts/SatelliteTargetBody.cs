@@ -7,14 +7,15 @@ namespace SpaceCon
     [RequireComponent(typeof(CircleCollider2D), typeof(GravityBody))]
     public class SatelliteTargetBody : MonoBehaviour
     {
-        public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter 
-        
+        public float targetScale = 1f; //How large is the acceptable target deviation for satellites to be able to enter
+
         //Components on self
         SatNet network;
         GravityBody gravityBody;
         CircleCollider2D trigger;
 
         float satelliteOrbitalVelocity;
+
 
         private void Reset()
         {
@@ -46,18 +47,18 @@ namespace SpaceCon
         private void Enter(Projectile projectile)
         {
             Satellite satellite = projectile.RequireComponent<Satellite>(s =>
-            { 
+            {
                 s.body = this;
                 s.speed = gravityBody.OrbitalVelocityAtHeight((transform.position - s.transform.position).magnitude);
             });
-            
+
 #if UNITY_2017
             //projectile.body.simulated = true;
 #endif
             projectile.body.isKinematic = true;
             projectile.body.velocity = Vector2.zero;
             Destroy(projectile); //projectile is no longer wanted as we don't do "physics anymore"
-           
+
             network.EnterOrbit(satellite.Node);
             satellite.gameObject.layer = LayerMask.NameToLayer("Satellite");
         }
@@ -74,9 +75,8 @@ namespace SpaceCon
             {
                 Enter(collision.GetComponent<Projectile>());
             }
-
         }
-        
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
