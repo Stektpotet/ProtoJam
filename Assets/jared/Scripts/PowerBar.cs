@@ -31,15 +31,15 @@ public class PowerBar : MonoBehaviour
    void Update()
    {
       //FOR DEBUG TEST WITH KEY
-      if (Input.GetKey(KeyCode.Space))
-      {
-         setPresentagePower(getPresentagePower() + 0.01f);
-      }
+    //   if (Input.GetKey(KeyCode.Space))
+    //   {
+    //      setPresentagePower(getPresentagePower() + 0.01f);
+    //   }
 
-      if (Input.GetKeyUp(KeyCode.Space))
-      {
-         setPresentagePower(0.0f);
-      }
+    //   if (Input.GetKeyUp(KeyCode.Space))
+    //   {
+    //      setPresentagePower(0.0f);
+    //   }
    }
 
 
