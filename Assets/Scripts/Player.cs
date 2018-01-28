@@ -29,6 +29,7 @@ namespace SpaceCon
         {
             if(Input.GetKeyDown(launchKey))
             {
+                
                 charge = 0.1f;
             }
             else if(Input.GetKey(launchKey)) //while player holds launchkey, charge the launch power.
