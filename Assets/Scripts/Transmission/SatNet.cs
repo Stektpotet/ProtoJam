@@ -13,18 +13,27 @@ namespace SpaceCon
         public void EnterOrbit(SatNode node)
         {
             nodes.Add(node);
-            node.Connect();
-            StartCoroutine(UpdateConnections());
+            UpdateConnections();
         }
         
-        IEnumerator UpdateConnections()
+        void UpdateConnections()
         {
-            foreach (SatNode node in nodes)
+            for (int i = nodes.Count - 1; i >= 0; i--)
             {
-                node.Disconnect();
-                node.Connect();
-                yield return new WaitForSeconds(1.0f);
+                if (nodes[i] != null)
+                {
+                    nodes[i].Disconnect();
+                    nodes[i].Connect(transform.position);
+                }
+                else
+                {
+                    nodes.RemoveAt(i);
+                }
             }
+        }
+        public void ExitOrbit(SatNode node)
+        {
+            nodes.Remove(node);
         }
     }
 }
