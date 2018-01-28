@@ -7,104 +7,127 @@ namespace SpaceCon
     [RequireComponent(typeof(LineRenderer))]
     public class SatNode : MonoBehaviour
     {
+        Vector2 planetPosition;
+
         LineRenderer lineRenderer;
+        private bool _inRange = true;
 
         public float radius = 2f;
         [SerializeField]
         SatNode Parent;
         [SerializeField]
         SatNode Child;
-        void AddChild(SatNode node)
+
+        void SetParent(SatNode node)
         {
-            if(Child != null)
-            {
-                node.Child = Child;
-            }
-            Child = node;
-            Child.Parent = this;
+           // if (Child == node) return; //My child cannot be my parent
+
+            Parent = node; //Finally set node as my parent
+            Child = Parent.Child;
+            if(Child != null) Child.Parent = this;
+            Parent.Child = this;
         }
 
         private void Update()
         {
             lineRenderer.SetPosition(0, (Parent == null) ? transform.position : Parent.transform.position);
             lineRenderer.SetPosition(1, transform.position);
-            lineRenderer.SetPosition(2, Vector3.up); //HACK
+            if (!_inRange)
+            {
+                lineRenderer.SetPosition(2, transform.position);
+            }
         }
 
         private void Start()
         {
+            
             lineRenderer = this.RequireComponent<LineRenderer>();
             lineRenderer.enabled = true;
+
+            lineRenderer.SetPosition(2, Vector3.up); //HACK
         }
 
-        public void Connect()
+        public void SetInRange(bool inRange)
         {
-            Debug.Log("0");
-            var collisions = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Satellite"));
-            if(collisions != null)
+            _inRange = inRange;
+            if(inRange)
             {
+                lineRenderer.SetPosition(2, Vector3.up);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            Disconnect();
+        }
+
+        public Vector3 GetOrbitDirection()
+        {
+            return Vector3.Cross(((Vector3)planetPosition - transform.position), Vector3.forward).normalized;
+        }
+
+        private bool IsInFrontOfMe(Vector3 position)
+        {
+            var p = Vector3.Dot(GetOrbitDirection(), (position - transform.position).normalized);
+            return p < 0.5f;
+        }
+
+        public void Connect(Vector2 planetPos)
+        {
+            planetPosition = planetPos;
+
+            gameObject.layer = 2;
+            var collisions = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Satellite"));
+            gameObject.layer = LayerMask.NameToLayer("Satellite");
+            if(collisions == null)
+            {
+                return;
                 //wat?
             }
             if (collisions != null && collisions.Length > 0)
             {
-                Debug.Log("1");
-                var nearest = collisions[0].GetComponent<SatNode>();
-                if (nearest == null)
+                float nearest = float.MaxValue;
+                Collider2D nearest_transform = null;
+                int count = 0;
+                foreach (var col in collisions)
                 {
-                    Debug.Log("2");
-                    return;
-                }
-                //Check 1st
-                var prevNearestChild = nearest.Child;
-                {
-                    if (nearest.Parent == null)
+                    var cont = (transform.position - col.transform.position).magnitude;
+                    if (cont < nearest)
                     {
-                        Debug.Log("2_1");
-                        AddChild(nearest);
-                        return;
+                        if (IsInFrontOfMe(col.transform.position))
+                        {
+                            nearest = cont;
+                            nearest_transform = col;
+                        };
+
                     }
-                    if (nearest.Child == null)
-                    {
-                        Debug.Log("2_2");
-                        nearest.AddChild(this);
-                    }
-                    Debug.Log("3");
+                    if (++count > 4) break;
                 }
-                if (collisions.Length < 2) return;
-                
-                var nearest2 = collisions[1].GetComponent<SatNode>();
-                if (nearest2 == null)
+                if (nearest_transform == null) return;
+
+                var nearest_collider = nearest_transform.GetComponent<SatNode>();
+                if (nearest_collider != null)
                 {
-                    Debug.Log("4");
-                    return;
-                }
-                //Check 2st
-                {
-                    AddChild(nearest2);
-                    if (nearest.Child != this && prevNearestChild == nearest2)
-                    {
-                        Debug.Log("5");
-                        nearest.AddChild(this);
-                        return;
-                    }
+                    SetParent(nearest_collider);
                 }
             }
-            Debug.Log("NOTHING");
             //Now it's in the network
         }
+        
 
-        public void Disconnect()
-        {
-            if(Parent != null && Parent.Child != null) Parent.Child = null;
-            if (Child != null && Child.Parent != null) Child.Parent = null;
-            Parent = null;
-            Child = null;
-        }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.magenta;
             Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.DrawLine(transform.position, transform.position + GetOrbitDirection() * 4f);
+        }
+        public void Disconnect()
+        {
+            if (Parent != null) { Parent.Child = null; }
+            if (Child != null) { Child.Parent = null; }
+            //Parent = null;
+            //Child = null;
         }
     }
 }
