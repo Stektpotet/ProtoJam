@@ -6,7 +6,7 @@ namespace SpaceCon
     [RequireComponent(typeof(ProjectileLauncher))]
     public class Player : MonoBehaviour
     {
-
+        public PowerBar powerbar;
         public GameObject prefab; //multiple later on...
 
         //Components on self
@@ -29,7 +29,6 @@ namespace SpaceCon
         {
             if(Input.GetKeyDown(launchKey))
             {
-                
                 charge = 0.1f;
             }
             else if(Input.GetKey(launchKey)) //while player holds launchkey, charge the launch power.
@@ -38,10 +37,11 @@ namespace SpaceCon
             }
             else if (Input.GetKeyUp(launchKey))
             {
-                launcher.LaunchProjectile(prefab, charge);
+                launcher.LaunchProjectile(prefab, charge, this);
                 
                 charge = 0;
             }
+            powerbar.setPresentagePower(charge/100f);
         }
     }
 }
