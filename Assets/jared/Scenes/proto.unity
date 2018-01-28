@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 1
+  trigger: {fileID: 0}
 --- !u!1 &620158656
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 1
+  trigger: {fileID: 0}
 --- !u!1 &644321939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 1
+  trigger: {fileID: 0}
 --- !u!4 &1111776213 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4280216145872578, guid: 1885272d02befb3429e46bfb5a828167,
@@ -1767,7 +1767,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1428922743865566, guid: a45380df3e76e4ab09886f9543508267, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45380df3e76e4ab09886f9543508267, type: 2}
@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 1
+  trigger: {fileID: 0}
 --- !u!1001 &1949598601
 Prefab:
   m_ObjectHideFlags: 0

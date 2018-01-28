@@ -51,10 +51,10 @@ public class colorButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyUp(KeyCode.RightArrow))
-		{
-			changeActiveState(!activeOutline.enabled);
-		}
+		// if(Input.GetKeyUp(KeyCode.RightArrow))
+		// {
+		// 	changeActiveState(!activeOutline.enabled);
+		// }
 	}
 
 
