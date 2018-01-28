@@ -10,7 +10,7 @@ public class GravMapDebugger : MonoBehaviour
     public int y = 10;
     private void OnDrawGizmosSelected()
     {
-        if(UnityEditor.EditorApplication.isPlaying)
+        if (UnityEditor.EditorApplication.isPlaying)
         {
             for (int y_p = -y; y_p <= y * 2; y_p++)
             {
@@ -23,6 +23,12 @@ public class GravMapDebugger : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+            Application.Quit();
     }
 }
 #endif

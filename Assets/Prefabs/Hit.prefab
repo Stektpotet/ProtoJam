@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198083572161761494}
   - component: {fileID: 199844604153062522}
   - component: {fileID: 114136000396115694}
+  - component: {fileID: 82978466818642434}
   m_Layer: 0
   m_Name: Hit
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199248470197916}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.6654336, y: -4.086997, z: -7.848985}
+  m_LocalPosition: {x: -0.18708909, y: -5.782526, z: -7.848985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4898425659680574}
@@ -135,6 +136,86 @@ Transform:
   m_Father: {fileID: 4277005119832100}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82978466818642434
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199248470197916}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 64bba9f611236914a974b061f066e70c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114136000396115694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +287,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2095939204
+  randomSeed: 291366590
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3612,7 +3693,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1865396777
+  randomSeed: 1136125052
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4575,14 +4656,14 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 7710
         ctime1: 14842
-        ctime2: 50501
+        ctime2: 46260
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
-        atime1: 1157
+        atime0: 6554
+        atime1: 15998
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -7024,7 +7105,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1407035677
+  randomSeed: -1144256597
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7114,7 +7195,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.25882354, g: 0.90588236, b: 1, a: 1}
+      maxColor: {r: 0.46366778, g: 0.8773713, b: 0.9852941, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7650,22 +7731,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.8
-          inSlope: 0.95146966
-          outSlope: 0.95146966
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 0.501199
           value: 1
           inSlope: 0
           outSlope: 0
+          tangentMode: 34
+        - serializedVersion: 2
+          time: 0.5033152
+          value: 1
+          inSlope: 0.0062509286
+          outSlope: 0.0062509286
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 0.49302328
-          inSlope: -2.990116
-          outSlope: -2.990116
-          tangentMode: 0
+          value: 0
+          inSlope: -2.0133493
+          outSlope: -2.0133493
+          tangentMode: 34
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -10364,7 +10445,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 167890144
+  randomSeed: 986612040
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10433,15 +10514,15 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.050980363, g: 0.36719412, b: 0.9843137, a: 0.25490198}
-        key1: {r: 0.38235295, g: 0.8989303, b: 1, a: 1}
+        key0: {r: 0.08235294, g: 0.050980393, b: 0.9843137, a: 0.3529412}
+        key1: {r: 0.56078434, g: 0.92156863, b: 0.99215686, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 7132
+        ctime0: 3277
         ctime1: 32382
         ctime2: 65535
         ctime3: 0
@@ -10449,7 +10530,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 23516
         atime1: 65535
         atime2: 0
         atime3: 0
