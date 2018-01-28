@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/jared/Scenes/NewBaseScene_Nataniel.unity
+    guid: 7419c11a3504f48ae8fa4da616420b40
