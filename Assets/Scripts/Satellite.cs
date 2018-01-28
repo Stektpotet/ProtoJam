@@ -7,8 +7,8 @@ namespace SpaceCon
     public class Satellite : MonoBehaviour
     {
         //Satellites of different type have different range?
-        public SatNode Node { get { if (node == null) node = GetComponent<SatNode>(); return node; } }
-        private SatNode node;
+        public SatNode Node { get { if (_node == null) _node = GetComponent<SatNode>(); return _node; } }
+        private SatNode _node;
 
         public SatelliteTargetBody body; //the body the satellite is orbiting
         public float speed; // orbital speed around body

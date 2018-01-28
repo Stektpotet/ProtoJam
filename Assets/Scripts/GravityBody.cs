@@ -26,7 +26,7 @@ namespace SpaceCon
         {
             return Mathf.Sqrt( 100f / height);
         }
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, sphereOfInfluenceRadius);
