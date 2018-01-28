@@ -3,49 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PowerBar : MonoBehaviour {
+public class PowerBar : MonoBehaviour
+{
 
 
-	public RectTransform mask;
+   public RectTransform mask;
 
-	private float numberAtFull = 84f;
-	private float numberAtEmpty = 15f;
+   private float numberAtFull = 84f;
+   private float numberAtEmpty = 15f;
 
-	public float precentagePower = 0.0f;
-	
-
-	void Start () 
-	{	
-		updatePowerBar();
-	}
+   public float precentagePower = 0.0f;
 
 
-	private void updatePowerBar()
-	{
-		float tmpFloat = ((numberAtFull - numberAtEmpty) * precentagePower) + numberAtEmpty;
-		mask.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, tmpFloat);
-	}
+   void Start()
+   {
+      updatePowerBar();
+   }
 
 
-	void Update()
-	{
-				//FOR DEBUG TEST WITH KEY
-		// if(Input.GetKey(KeyCode.UpArrow))
-		// {
-		// 	setPresentagePower(getPresentagePower() + 0.01f);
-		// }
-	}
+   private void updatePowerBar()
+   {
+      float tmpFloat = ((numberAtFull - numberAtEmpty) * precentagePower) + numberAtEmpty;
+      mask.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, tmpFloat);
+   }
 
 
-	public float getPresentagePower()
-	{
-		return precentagePower;
-	}
+   void Update()
+   {
+      //FOR DEBUG TEST WITH KEY
+      if (Input.GetKey(KeyCode.Space))
+      {
+         setPresentagePower(getPresentagePower() + 0.01f);
+      }
 
-	public void setPresentagePower(float value)
-	{
+      if (Input.GetKeyUp(KeyCode.Space))
+      {
+         setPresentagePower(0.0f);
+      }
+   }
 
-		precentagePower = value;
-		updatePowerBar();
-	}
+
+   public float getPresentagePower()
+   {
+      return precentagePower;
+   }
+
+   public void setPresentagePower(float value)
+   {
+
+      precentagePower = value;
+      updatePowerBar();
+   }
 }
