@@ -38,6 +38,7 @@ namespace SpaceCon
             else if (Input.GetKeyUp(launchKey))
             {
                 launcher.LaunchProjectile(prefab, charge);
+                
                 charge = 0;
             }
         }

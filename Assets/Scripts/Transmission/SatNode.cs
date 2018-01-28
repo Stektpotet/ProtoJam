@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using RotaryHeart.Lib.UnityGLDebug;
 using System.Collections.Generic;
 
 namespace SpaceCon
@@ -10,7 +9,7 @@ namespace SpaceCon
     {
         LineRenderer lineRenderer;
 
-        public float radius = 1.5f;
+        public float radius = 2f;
         [SerializeField]
         SatNode Parent;
         [SerializeField]
@@ -29,8 +28,7 @@ namespace SpaceCon
         {
             lineRenderer.SetPosition(0, (Parent == null) ? transform.position : Parent.transform.position);
             lineRenderer.SetPosition(1, transform.position);
-            lineRenderer.SetPosition(2, Vector3.zero); //HACK
-            
+            lineRenderer.SetPosition(2, Vector3.up); //HACK
         }
 
         private void Start()
@@ -45,7 +43,7 @@ namespace SpaceCon
             var collisions = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Satellite"));
             if(collisions != null)
             {
-
+                //wat?
             }
             if (collisions != null && collisions.Length > 0)
             {
@@ -93,6 +91,14 @@ namespace SpaceCon
             }
             Debug.Log("NOTHING");
             //Now it's in the network
+        }
+
+        public void Disconnect()
+        {
+            if(Parent != null && Parent.Child != null) Parent.Child = null;
+            if (Child != null && Child.Parent != null) Child.Parent = null;
+            Parent = null;
+            Child = null;
         }
 
         private void OnDrawGizmos()

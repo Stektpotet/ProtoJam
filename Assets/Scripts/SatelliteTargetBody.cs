@@ -62,10 +62,10 @@ namespace SpaceCon
             satellite.gameObject.layer = LayerMask.NameToLayer("Satellite");
         }
 
-        private void Exit(Satellite satellite)
-        {
-            network.Disconnect(satellite);
-        }
+        //private void Exit(Satellite satellite)
+        //{
+        //    network.Disconnect(satellite);
+        //}
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

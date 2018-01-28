@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace SpaceCon
 {
@@ -13,21 +14,17 @@ namespace SpaceCon
         {
             nodes.Add(node);
             node.Connect();
+            StartCoroutine(UpdateConnections());
         }
-
-        private void FixedUpdate()
+        
+        IEnumerator UpdateConnections()
         {
-            UpdateConnections();
-        }
-
-        public void UpdateConnections()
-        {
-            
-        }
-
-        public void Disconnect(Satellite satellite)
-        {
-            UpdateConnections();
+            foreach (SatNode node in nodes)
+            {
+                node.Disconnect();
+                node.Connect();
+                yield return new WaitForSeconds(1.0f);
+            }
         }
     }
 }
