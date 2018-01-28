@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 317422575}
   - component: {fileID: 317422579}
   - component: {fileID: 317422578}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 442877107}
   - component: {fileID: 442877111}
   - component: {fileID: 442877110}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 2
+  trigger: {fileID: 594960826}
 --- !u!1 &620158656
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 2
+  trigger: {fileID: 620158662}
 --- !u!1 &882733099
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 882733100}
   - component: {fileID: 882733102}
   - component: {fileID: 882733105}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Earth_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 2
+  trigger: {fileID: 884699150}
 --- !u!1 &1139447669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6f3596b972d7d4cb10268cc99f3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 2
+  trigger: {fileID: 1936239992}
 --- !u!1 &2137950999
 GameObject:
   m_ObjectHideFlags: 0
