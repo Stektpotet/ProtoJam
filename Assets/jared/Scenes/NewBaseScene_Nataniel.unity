@@ -4823,7 +4823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd570611c7c5cce4aa3a5a03cc607a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 1199248470197916, guid: 91d69e07512f4004bbfeace99452c227, type: 2}
+  explosion: {fileID: 0}
   body: {fileID: 967613058}
 --- !u!50 &967613058
 Rigidbody2D:
@@ -5574,12 +5574,12 @@ Prefab:
     - target: {fileID: 114067710894664558, guid: a45380df3e76e4ab09886f9543508267,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.2352941
+      value: 0.21323532
       objectReference: {fileID: 0}
     - target: {fileID: 114067710894664558, guid: a45380df3e76e4ab09886f9543508267,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.2352941
+      value: 0.21323532
       objectReference: {fileID: 0}
     - target: {fileID: 114942393314155088, guid: a45380df3e76e4ab09886f9543508267,
         type: 2}
