@@ -13,7 +13,7 @@ namespace SpaceCon
         public void EnterOrbit(SatNode node)
         {
             nodes.Add(node);
-            node.Connect();
+            node.Connect(this);
             StartCoroutine(UpdateConnections());
         }
         
@@ -22,9 +22,13 @@ namespace SpaceCon
             foreach (SatNode node in nodes)
             {
                 node.Disconnect();
-                node.Connect();
+                node.Connect(this);
                 yield return new WaitForSeconds(1.0f);
             }
+        }
+        public void ExitOrbit(SatNode node)
+        {
+            nodes.Remove(node);
         }
     }
 }

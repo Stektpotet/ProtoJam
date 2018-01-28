@@ -14,6 +14,9 @@ namespace SpaceCon
         SatNode Parent;
         [SerializeField]
         SatNode Child;
+
+        SatNet connectedTo;
+
         void AddChild(SatNode node)
         {
             if(Child != null)
@@ -37,8 +40,15 @@ namespace SpaceCon
             lineRenderer.enabled = true;
         }
 
-        public void Connect()
+        private void OnDestroy()
         {
+            Disconnect();
+            connectedTo.ExitOrbit(this);
+        }
+
+        public void Connect(SatNet connectTo)
+        {
+            connectedTo = connectTo;
             Debug.Log("0");
             var collisions = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Satellite"));
             if(collisions != null)

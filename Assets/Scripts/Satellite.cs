@@ -16,5 +16,11 @@ namespace SpaceCon
         {
             transform.RotateAround(body.transform.position, Vector3.forward, speed * Time.deltaTime);
         }
+
+        private void OnDestroy()
+        {
+            Disconnect();
+        }
+
     }
 }
